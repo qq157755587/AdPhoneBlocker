@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,6 +25,8 @@
                 <action android:name="android.intent.action.PHONE_STATE"/>
             </intent-filter>
         </receiver>
+
+        <meta-data android:name="API_KEY" android:value="4ec0ae3e4fef566cea8a493ed8c065cc"/>
     </application>
 
 </manifest>

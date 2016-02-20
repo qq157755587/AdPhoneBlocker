@@ -30,9 +30,9 @@ class PhoneCallReceiver: BroadcastReceiver() {
                     val info = response.body().response[number]
                     if (info?.name?.isNullOrEmpty()?.not() ?: false) {
                         val builder = NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.abc_ic_voice_search_api_mtrl_alpha)
+                                .setSmallIcon(R.drawable.ic_stat_action_settings_phone)
                                 .setContentTitle(info?.name)
-                                .setContentText("被标记${info?.count}次")
+                                .setContentText(context.getString(R.string.marked_count, info?.count))
                                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                                 .setAutoCancel(true)
                         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

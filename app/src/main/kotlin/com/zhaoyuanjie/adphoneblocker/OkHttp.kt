@@ -20,7 +20,7 @@ object OkHttp {
                 response = chain.proceed(originalRequest)
             } else {
                 val newRequest = originalRequest.newBuilder()
-                        .header("apikey", "4ec0ae3e4fef566cea8a493ed8c065cc")
+                        .header("apikey", Const.API_KEY)
                         .build()
                 response = chain.proceed(newRequest)
             }
