@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">骚扰电话标识</string>
+    <string name="app_name">小揪揪</string>
     <string name="permission_granted">状态正常\n来电话时关注一下通知栏哦 ～(^з^)-</string>
     <string name="permission_denied">授权失败\n无法标识骚扰电话 o(TヘTo)</string>
     <string name="marked_count">被标记%d次</string>
