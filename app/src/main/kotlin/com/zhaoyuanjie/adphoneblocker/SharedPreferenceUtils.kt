@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.google.gson.Gson
-import java.util.*
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -17,14 +16,16 @@ class AppPreferences(private val context: Context) {
 
     var whiteList by PreferenceDelegates.string("[]")
 
-    fun getWhiteList(): MutableSet<String> {
-        return Gson().fromJson(whiteList, HashSet<String>().javaClass)
+    fun getWhiteList(): MutableList<String> {
+        return Gson().fromJson(whiteList, mutableListOf("").javaClass)
     }
 
     fun addNumberToWhiteList(number: String) {
         val list = getWhiteList()
-        list.add(number)
-        whiteList = Gson().toJson(list)
+        if (!list.contains(number)) {
+            list.add(number)
+            whiteList = Gson().toJson(list)
+        }
     }
 }
 

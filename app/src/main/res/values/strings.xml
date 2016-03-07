@@ -3,5 +3,6 @@
     <string name="permission_granted">状态正常\n来电话时关注一下通知栏哦 ～(^з^)-</string>
     <string name="permission_denied">授权失败\n无法标识骚扰电话 o(TヘTo)</string>
     <string name="marked_count">被标记%d次</string>
+    <string name="white_list">白名单</string>
     <string name="add_to_white_list">加入白名单</string>
 </resources>
