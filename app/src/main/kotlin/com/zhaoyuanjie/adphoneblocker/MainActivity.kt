@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -14,9 +15,10 @@ import kotlinx.android.synthetic.main.activity_main.*
  * 主界面
  * Created by zhaoyuanjie on 15/12/26.
  */
-class MainActivity: AppCompatActivity() {
+class MainActivity: AppCompatActivity(), WhiteListAdapter.WhiteListListener {
 
     private val pref by lazy { AppPreferences(this) }
+    private lateinit var mAdapter: WhiteListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,11 +45,24 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
+    override fun onLongClick(number: String, position: Int) {
+        AlertDialog.Builder(this)
+                .setMessage(getString(R.string.confirm_remove_from_white_list, number))
+                .setPositiveButton(android.R.string.yes, { dialog, which ->
+                    pref.removeNumberFromWhiteList(number)
+                    mAdapter.list.remove(number)
+                    recycler_view.adapter.notifyItemRemoved(position)
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .show()
+    }
+
     private fun showWhiteList() {
         val list = pref.getWhiteList()
         if (list.size > 0) {
+            mAdapter = WhiteListAdapter(list, this)
             recycler_view.layoutManager = LinearLayoutManager(this)
-            recycler_view.adapter = WhiteListAdapter(list)
+            recycler_view.adapter = mAdapter
             recycler_view.visibility = View.VISIBLE
             supportActionBar?.setSubtitle(R.string.white_list)
         }

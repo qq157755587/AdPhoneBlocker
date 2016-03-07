@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.white_list_item_view.view.*
  * 白名单列表的adapter
  * Created by zhaoyuanjie on 16/3/7.
  */
-class WhiteListAdapter(val list: List<String>): RecyclerView.Adapter<WhiteListAdapter.ViewHolder>() {
+class WhiteListAdapter(val list: MutableList<String>, val listener: WhiteListListener?): RecyclerView.Adapter<WhiteListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder? {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.white_list_item_view, parent, false);
@@ -18,7 +18,12 @@ class WhiteListAdapter(val list: List<String>): RecyclerView.Adapter<WhiteListAd
     }
 
     override fun onBindViewHolder(vh: ViewHolder, position: Int) {
-        vh.itemView.number.text = list[position]
+        val number = list[position]
+        vh.itemView.number.text = number
+        vh.itemView.setOnLongClickListener {
+            listener?.onLongClick(number, position)
+            true;
+        }
     }
 
     override fun getItemCount(): Int {
@@ -26,4 +31,9 @@ class WhiteListAdapter(val list: List<String>): RecyclerView.Adapter<WhiteListAd
     }
 
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) { }
+
+    interface WhiteListListener {
+
+        fun onLongClick(number: String, position: Int)
+    }
 }

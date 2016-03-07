@@ -5,4 +5,5 @@
     <string name="marked_count">被标记%d次</string>
     <string name="white_list">白名单</string>
     <string name="add_to_white_list">加入白名单</string>
+    <string name="confirm_remove_from_white_list">将%s从白名单中移除？</string>
 </resources>

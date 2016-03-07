@@ -27,6 +27,15 @@ class AppPreferences(private val context: Context) {
             whiteList = Gson().toJson(list)
         }
     }
+
+    fun removeNumberFromWhiteList(number: String): Boolean {
+        val list = getWhiteList()
+        if (list.remove(number)) {
+            whiteList = Gson().toJson(list)
+            return true;
+        }
+        return false;
+    }
 }
 
 object PreferenceDelegates {
