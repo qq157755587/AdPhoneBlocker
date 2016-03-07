@@ -32,7 +32,7 @@ class PhoneCallReceiver: BroadcastReceiver() {
                         val builder = NotificationCompat.Builder(context)
                                 .setSmallIcon(R.drawable.ic_stat_action_settings_phone)
                                 .setContentTitle(info?.name)
-                                .setContentText(context.getString(R.string.marked_count, info?.count))
+                                .setContentText(context.getString(R.string.marked_count, info?.count ?: 1))
                                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                                 .setAutoCancel(true)
                         val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
