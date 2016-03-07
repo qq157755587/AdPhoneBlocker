@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
 
+        <service android:name=".WhiteListService"/>
+
         <receiver android:name=".PhoneCallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE"/>
