@@ -4,6 +4,7 @@ import android.app.NotificationManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.telephony.TelephonyManager
 import retrofit.Call
@@ -28,15 +29,8 @@ class PhoneCallReceiver: BroadcastReceiver() {
             call?.enqueue(object: Callback<QueryResult> {
                 override fun onResponse(response: Response<QueryResult>, retrofit: Retrofit) {
                     val info = response.body().response[number]
-                    if (info?.name?.isNullOrEmpty()?.not() ?: false) {
-                        val builder = NotificationCompat.Builder(context)
-                                .setSmallIcon(R.drawable.ic_stat_action_settings_phone)
-                                .setContentTitle(info?.name)
-                                .setContentText(context.getString(R.string.marked_count, info?.count ?: 1))
-                                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                                .setAutoCancel(true)
-                        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                        notificationManager.notify(notifyId, builder.build())
+                    if (info != null) {
+                        showNotification(context, info)
                     }
                 }
 
@@ -47,6 +41,23 @@ class PhoneCallReceiver: BroadcastReceiver() {
         } else {
             call?.cancel()
             call = null
+        }
+    }
+
+    private fun showNotification(context: Context, info: PhoneInfo) {
+        if (info.name?.isNullOrEmpty()?.not() ?: false) {
+            val builder = NotificationCompat.Builder(context)
+                    .setSmallIcon(R.drawable.ic_stat_action_settings_phone)
+                    .setContentTitle(info.name)
+                    .setContentText(context.getString(R.string.marked_count, info.count ?: 1))
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setAutoCancel(true)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                // 不这样弄一下就显示不了heads-up notification
+                builder.setVibrate(longArrayOf())
+            }
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(notifyId, builder.build())
         }
     }
 }
