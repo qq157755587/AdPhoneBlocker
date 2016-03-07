@@ -1,6 +1,8 @@
 package com.zhaoyuanjie.adphoneblocker
 
 import android.app.IntentService
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 
 /**
@@ -15,6 +17,8 @@ class WhiteListService: IntentService("white_list") {
         val number = intent.getStringExtra("number")
         if (number != null) {
             pref.addNumberToWhiteList(number)
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.cancelAll()
         }
     }
 }
