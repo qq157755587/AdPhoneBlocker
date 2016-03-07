@@ -60,7 +60,7 @@ class PhoneCallReceiver: BroadcastReceiver() {
         intent.putExtra("number", number)
         val pendingIntent = PendingIntent.getService(context, 0, intent, PendingIntent.FLAG_ONE_SHOT)
         val builder = NotificationCompat.Builder(context)
-                .setSmallIcon(R.drawable.ic_stat_action_settings_phone)
+                .setSmallIcon(R.drawable.ic_stat_alert_warning)
                 .setContentTitle(info.name)
                 .setContentText(context.getString(R.string.marked_count, info.count ?: 1))
                 .addAction(R.drawable.ic_stat_content_add_circle_outline,
