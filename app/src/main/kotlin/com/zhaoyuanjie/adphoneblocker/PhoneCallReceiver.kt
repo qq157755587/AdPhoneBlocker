@@ -1,12 +1,12 @@
 package com.zhaoyuanjie.adphoneblocker
 
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.support.v4.app.NotificationCompat
+import android.support.v4.app.NotificationManagerCompat
 import android.telephony.TelephonyManager
 import retrofit.Call
 import retrofit.Callback
@@ -72,7 +72,7 @@ class PhoneCallReceiver: BroadcastReceiver() {
             // 不这样弄一下就显示不了heads-up notification
             builder.setVibrate(longArrayOf())
         }
-        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(notifyId, builder.build())
     }
 }
