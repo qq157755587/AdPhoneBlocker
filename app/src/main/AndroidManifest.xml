@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.MainActivity"
                   android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".WhiteListService"/>
+        <service android:name=".service.WhiteListService"/>
 
-        <receiver android:name=".PhoneCallReceiver">
+        <receiver android:name=".receiver.PhoneCallReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.PHONE_STATE"/>
             </intent-filter>

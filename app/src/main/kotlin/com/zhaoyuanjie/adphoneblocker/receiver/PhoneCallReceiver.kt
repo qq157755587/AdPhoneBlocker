@@ -1,4 +1,4 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.receiver
 
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
@@ -8,6 +8,12 @@ import android.os.Build
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
 import android.telephony.TelephonyManager
+import com.zhaoyuanjie.adphoneblocker.R
+import com.zhaoyuanjie.adphoneblocker.model.PhoneInfo
+import com.zhaoyuanjie.adphoneblocker.model.QueryResult
+import com.zhaoyuanjie.adphoneblocker.net.Restful
+import com.zhaoyuanjie.adphoneblocker.service.WhiteListService
+import com.zhaoyuanjie.adphoneblocker.util.AppPreferences
 import retrofit.Call
 import retrofit.Callback
 import retrofit.Response

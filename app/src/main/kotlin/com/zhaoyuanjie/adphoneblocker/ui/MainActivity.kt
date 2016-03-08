@@ -1,4 +1,4 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -9,6 +9,8 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.zhaoyuanjie.adphoneblocker.R
+import com.zhaoyuanjie.adphoneblocker.util.AppPreferences
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**

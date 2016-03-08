@@ -1,8 +1,9 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.service
 
 import android.app.IntentService
 import android.content.Intent
 import android.support.v4.app.NotificationManagerCompat
+import com.zhaoyuanjie.adphoneblocker.util.AppPreferences
 
 /**
  * 添加白名单的Service

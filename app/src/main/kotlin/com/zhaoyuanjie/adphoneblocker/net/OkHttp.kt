@@ -1,9 +1,10 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.net
 
 import com.squareup.okhttp.Interceptor
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import com.squareup.okhttp.Response
+import com.zhaoyuanjie.adphoneblocker.util.Const
 
 /**
  * Created by zhaoyuanjie on 15/12/26.

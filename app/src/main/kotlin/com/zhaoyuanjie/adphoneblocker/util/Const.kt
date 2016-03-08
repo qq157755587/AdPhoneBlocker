@@ -1,4 +1,4 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.util
 
 /**
  * Created by zhaoyuanjie on 16/2/20.

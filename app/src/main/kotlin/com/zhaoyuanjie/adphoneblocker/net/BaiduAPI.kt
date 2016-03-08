@@ -1,5 +1,6 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.net
 
+import com.zhaoyuanjie.adphoneblocker.model.QueryResult
 import retrofit.Call
 import retrofit.http.GET
 import retrofit.http.Query

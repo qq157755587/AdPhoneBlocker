@@ -2,6 +2,7 @@ package com.zhaoyuanjie.adphoneblocker
 
 import android.app.Application
 import android.content.pm.PackageManager
+import com.zhaoyuanjie.adphoneblocker.util.Const
 
 /**
  * Created by zhaoyuanjie on 16/2/20.

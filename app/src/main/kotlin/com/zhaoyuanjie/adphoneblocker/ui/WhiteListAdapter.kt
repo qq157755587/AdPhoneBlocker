@@ -1,9 +1,10 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.zhaoyuanjie.adphoneblocker.R
 import kotlinx.android.synthetic.main.white_list_item_view.view.*
 
 /**

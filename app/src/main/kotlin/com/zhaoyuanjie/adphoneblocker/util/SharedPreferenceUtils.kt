@@ -1,4 +1,4 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.util
 
 import android.content.Context
 import android.content.SharedPreferences

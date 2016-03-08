@@ -1,4 +1,4 @@
-package com.zhaoyuanjie.adphoneblocker
+package com.zhaoyuanjie.adphoneblocker.net
 
 import retrofit.GsonConverterFactory
 import retrofit.Retrofit
